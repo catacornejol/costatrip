@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 
 from flask import Flask, render_template, request, redirect, url_for
-import smtplib
-from email.message import EmailMessage
+from sendgrid import SendGridAPIClient
+from sendgrid.helpers.mail import Mail
+import os
 
 app = Flask(__name__)
 
-# CONFIGURA TU CORREO AQUÍ
-TU_CORREO = "catalina.cornejo01@gmail.com"
-TU_PASSWORD = "eead itod uuhp xqdx"
+# Lee la API Key desde Render (Environment Variable)
+SENDGRID_API_KEY = os.environ.get("SENDGRID_API_KEY")
 
 @app.route("/")
 def inicio():
@@ -36,17 +36,16 @@ Llegada: {llegada}
 """
 
     try:
-        msg = EmailMessage()
-        msg["Subject"] = "Nueva solicitud desde CostaTrip"
-        msg["From"] = TU_CORREO
-        msg["To"] = TU_CORREO
-        msg.set_content(mensaje)
+        message = Mail(
+            from_email="andrea.costatrip@gmail.com",
+            to_emails="andrea.costatrip@gmail.com",
+            subject="Nueva solicitud desde CostaTrip",
+            plain_text_content=mensaje,
+        )
 
-        with smtplib.SMTP_SSL("smtp.gmail.com", 465, timeout=10) as server:
-            server.login(TU_CORREO, TU_PASSWORD)
-            server.send_message(msg)
+        sg = SendGridAPIClient(SENDGRID_API_KEY)
+        sg.send(message)
 
-        # Recarga la página limpia
         return redirect(url_for("inicio"))
 
     except Exception as e:
@@ -54,5 +53,3 @@ Llegada: {llegada}
 
 if __name__ == "__main__":
     app.run()
-
-
