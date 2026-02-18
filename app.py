@@ -42,7 +42,7 @@ Llegada: {llegada}
         msg["To"] = TU_CORREO
         msg.set_content(mensaje)
 
-        with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
+        with smtplib.SMTP_SSL("smtp.gmail.com", 465, timeout=10) as server:
             server.login(TU_CORREO, TU_PASSWORD)
             server.send_message(msg)
 
@@ -54,4 +54,5 @@ Llegada: {llegada}
 
 if __name__ == "__main__":
     app.run()
+
 
