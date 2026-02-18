@@ -1,0 +1,104 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Fondo pantalla completa */
+.hero {
+    height: 100vh;
+    background: url("img/fondo.png");
+    background-size: cover;
+    background-position: center;
+}
+
+/* Capa oscura */
+.overlay {
+    background-color: rgba(0, 0, 0, 0.65);
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Contenido centrado */
+.contenido {
+    text-align: center;
+    color: white;
+    width: 90%;
+    max-width: 1200px;
+}
+
+/* Logo */
+.logo {
+    width: 110px;
+    margin-bottom: 10px;
+}
+
+/* Título grande */
+.titulo {
+    font-size: 70px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Subtítulo */
+.subtitulo {
+    font-size: 22px;
+    margin-bottom: 25px;
+}
+
+/* Texto formulario */
+.form-text {
+    font-size: 20px;
+    margin-bottom: 25px;
+}
+
+/* Formulario */
+.form-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.columnas {
+    display: flex;
+    gap: 40px;
+}
+
+.columna {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input {
+    width: 300px;
+    padding: 15px;
+    border-radius: 30px;
+    border: none;
+    font-size: 16px;
+}
+
+/* Botón grande centrado */
+.btn-enviar {
+    padding: 18px 60px;
+    font-size: 22px;
+    background-color: #9c6b3c;
+    color: white;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.btn-enviar:hover {
+    background-color: #b07c49;
+}

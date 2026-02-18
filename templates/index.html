@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>CostaTrip</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/logo.png') }}">
+
+</head>
+<body>
+
+<section class="hero">
+    <div class="overlay">
+        <div class="contenido">
+
+            <!-- Logo -->
+            <img src="{{ url_for('static', filename='img/logo.png') }}" class="logo">
+
+            <h1 class="titulo">CostaTrip</h1>
+            <p class="subtitulo">Encuentra los mejores precios para tus vacaciones</p>
+
+            <p class="form-text">
+                Ingresa tus datos y te contactaremos:
+            </p>
+
+            <div class="form-wrapper">
+                <form class="formulario" action="/enviar" method="POST">
+
+                    <div class="columnas">
+                        <div class="columna">
+                            <input type="text" name="nombre" placeholder="Nombre" required>
+                            <input type="text" name="contacto" placeholder="Número de Contacto" required>
+                            <input type="number" name="pasajeros" placeholder="Número de Pasajeros" required>
+                        </div>
+
+                        <div class="columna">
+                            <input type="text" name="destino" placeholder="Lugar de Destino" required>
+                            <input type="text" name="salida" placeholder="Fecha de Salida (dd/mm/aaaa)" required>
+                            <input type="text" name="llegada" placeholder="Fecha de llegada (dd/mm/aaaa)"required>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-enviar">
+                        Enviar
+                    </button>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+</body>
+</html>
